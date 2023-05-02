@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: B4B4B5;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FacturaMostrada">
+   <children>
+      <Text fill="#5b5b5b" layoutX="139.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Factura Generada" wrappingWidth="322.994140625">
+         <font>
+            <Font name="Eras Medium ITC" size="36.0" />
+         </font>
+      </Text>
+      <Label fx:id="facturaG" layoutX="25.0" layoutY="56.0" prefHeight="261.0" prefWidth="551.0" textFill="#686868">
+         <font>
+            <Font name="Eras Medium ITC" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="botonVolver" layoutX="247.0" layoutY="344.0" mnemonicParsing="false" onAction="#volverPrincipal" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #5b5b5b;" text="Volver" textFill="#cdcdcd" />
+   </children>
+</AnchorPane>
