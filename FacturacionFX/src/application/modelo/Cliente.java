@@ -1,4 +1,4 @@
-package modelo;
+package application.modelo;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -156,10 +156,9 @@ public class Cliente {
 	        almacenarFactura(factura);
 	        cerrarPedidoActual();
 	        crearNuevoPedido();
-	        resultado += "Factura Generada: ";
 	        resultado += factura.getFechaCreacion();
 	    } else {
-	        resultado += "El pedido está vacío!";
+	        resultado += "El pedido esta vacio!";
 	    }
 	    return resultado;
 	}
@@ -182,10 +181,10 @@ public class Cliente {
 	        DecimalFormat df = new DecimalFormat("#.##");
 	        Pedido pedido = factura.getPedido();
 	        if (pedido != null && pedido.getProductos() != null && !pedido.getProductos().isEmpty()) {
-	            tabla.append("Cliente: " + factura.getCliente().getNombre() + " " + factura.getCliente().getApellidos());
-	            tabla.append("Factura N° " + factura.getFechaCreacion() + "\n");
+	            tabla.append("Cliente: " + factura.getCliente().getNombre() + " " + factura.getCliente().getApellidos() + "\n");
+	            tabla.append("Factura NÂº " + factura.getFechaCreacion() + "\n");
 	            tabla.append("Producto\tUnidades\tPrecio\t\tDescuento\tSubtotal\n");
-	            tabla.append("-----------------------------------------------------------------------------\n");
+	            tabla.append("----------------------------------------------------------------------------------------------------------------\n");
 	            double subtotal = 0.0;
 	            for (Map.Entry<Producto, Integer> productoPedido : pedido.getProductos().entrySet()) {
 	                Producto producto = productoPedido.getKey();
@@ -193,15 +192,15 @@ public class Cliente {
 	                double precio = producto.getPrecio();
 	                double descuento = factura.getCliente().getDescuento();
 	                double subtotalProducto = unidades * precio * (1 - descuento / 100);
-	                tabla.append(String.format("%-17s%-15s%-16s%-16s%-15s\n", producto.getNombre(), unidades + "Uds", df.format(precio) + "€", df.format(descuento) + "%", df.format(subtotalProducto) + "€"));
+	                tabla.append(String.format("%-19s%-19s%-20s%-20s%-19s\n", producto.getNombre(), unidades + "Uds", df.format(precio) + "â‚¬", df.format(descuento) + "%", df.format(subtotalProducto) + "â‚¬"));
 	                subtotal += subtotalProducto;
 	            }
 	            double iva = subtotal * 0.21;
 	            double total = subtotal + iva;
-	            tabla.append("-----------------------------------------------------------------------------\n");
-	            tabla.append(String.format("%-64s%-15s\n", "Subtotal", df.format(subtotal) + "€"));
-	            tabla.append(String.format("%-64s%-15s\n", "IVA 21%", df.format(iva) + "€"));
-	            tabla.append(String.format("%-64s%-15s\n", "TOTAL", df.format(total) + "€"));
+	            tabla.append("----------------------------------------------------------------------------------------------------------------\n");
+	            tabla.append(String.format("%-89s%-20s\n", "Subtotal", df.format(subtotal) + "â‚¬"));
+	            tabla.append(String.format("%-88s%-20s\n", "IVA 21%", df.format(iva) + "â‚¬"));
+	            tabla.append(String.format("%-89s%-20s\n", "TOTAL", df.format(total) + "â‚¬"));
 	        } else {
 	            tabla.append("El pedido No Existe o no contiene productos!"); 
 	        }
@@ -213,9 +212,9 @@ public class Cliente {
 		String resultado = "";
 	    Factura factura = buscarFactura(numeroFactura);
 	    if (factura == null) {
-	        throw new IllegalArgumentException("La factura con número " + numeroFactura + " no existe.");
+	        throw new IllegalArgumentException("La factura con nï¿½mero " + numeroFactura + " no existe.");
 	    }else {	
-	    String nombreArchivo = "C:\\Users\\Usuario\\Desktop\\Escritorio\\Programacion\\DAM\\" + factura.getFechaCreacion() +".txt";
+	    String nombreArchivo = "C:\\Users\\Nicolas\\Desktop\\Martes\\" + factura.getFechaCreacion() +".txt";
 	    FileWriter writer = new FileWriter(nombreArchivo);
 	    resultado += "Ruta: " + nombreArchivo;
 	    writer.write(imprimirFactura(numeroFactura));

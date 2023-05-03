@@ -1,4 +1,4 @@
-package application;
+package application.controladores;
 
 import java.io.IOException;
 import java.net.URL;
@@ -14,10 +14,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import modelo.Comercio;
+import application.modelo.Comercio;
 
-public class agregarProducto implements Initializable{
-
+public class reponerProducto implements Initializable{
 	@FXML
 	private Button botonVolver;
 	
@@ -28,10 +27,7 @@ public class agregarProducto implements Initializable{
 	private TextField tfNombreP;
 	
 	@FXML
-	private TextField tfPrecio;
-	
-	@FXML
-	private TextField tfExistencias;
+	private TextField tfCantidadRP;
 	
 	@FXML 
 	private Label resultadoP;
@@ -44,7 +40,7 @@ public class agregarProducto implements Initializable{
 	
 	public void volverPrincipal(ActionEvent Event) throws IOException {
 	 	
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("PrimeraPantalla.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/vistas/PrimeraPantalla.fxml"));
 	    Parent root = loader.load();
 	    Scene scene = new Scene(root);
 	    Stage stageActual = (Stage) botonVolver.getScene().getWindow(); // obtener la instancia actual de Stage
@@ -54,24 +50,21 @@ public class agregarProducto implements Initializable{
 	    stageActual.show();
 	}
 	
-	public void incorporarProducto(ActionEvent Event) {
+	public void reponProducto(ActionEvent Event) {
 		String nombre = tfNombreP.getText();
-		double precio = Double.parseDouble(tfPrecio.getText());
-		int existencias = Integer.parseInt(tfExistencias.getText());
+		int cantidad = Integer.parseInt(tfCantidadRP.getText());
 		
-		int codigo = comercio.incorporarProducto(nombre, precio, existencias);
+		int codigo = comercio.actualizarStock(nombre, cantidad);
+		
 		if(codigo == 0) {
-			resultadoP.setText("Producto Incorporado con EXITO!");
-			System.out.println("\nProducto Incorporado con EXITO!");
-			
+			resultadoP.setText("Stock Actualizado");
+			System.out.println("\nStock Actualizado!");
 		}else if(codigo == 1) {
-			resultadoP.setText("ERROR el Producto Ya Existe!");
-			System.out.println("\nERROR el Producto Ya Existe!");
+			resultadoP.setText("El Producto No Existe!");
+			System.out.println("\nERROR El Producto No Existe!");
 		}
-		 tfNombreP.setText("");
-		 tfPrecio.setText("");
-		 tfExistencias.setText("");
-
+		tfNombreP.setText("");
+		tfCantidadRP.setText("");
+		
 	}
-	
 }

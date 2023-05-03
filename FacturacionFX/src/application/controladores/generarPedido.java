@@ -1,4 +1,4 @@
-package application;
+package application.controladores;
 
 import java.io.IOException;
 import java.net.URL;
@@ -14,7 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import modelo.Comercio;
+import application.modelo.Comercio;
 
 public class generarPedido implements Initializable {
 	
@@ -48,7 +48,7 @@ public class generarPedido implements Initializable {
 	
 	public void volverPrincipal(ActionEvent Event) throws IOException {
 	 	
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("PrimeraPantalla.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/vistas/PrimeraPantalla.fxml"));
 	    Parent root = loader.load();
 	    Scene scene = new Scene(root);
 	    Stage stageActual = (Stage) botonVolver.getScene().getWindow(); // obtener la instancia actual de Stage

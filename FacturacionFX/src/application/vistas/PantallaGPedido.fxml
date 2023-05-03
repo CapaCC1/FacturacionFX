@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.agregarCliente">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controladores.generarPedido">
    <left>
-      <AnchorPane prefHeight="400.0" prefWidth="232.0" style="-fx-background-color: #440BFE;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="400.0" prefWidth="260.0" style="-fx-background-color: #440BFE;" BorderPane.alignment="CENTER">
          <children>
             <Circle fill="#1f93ff00" layoutX="116.0" layoutY="200.0" radius="100.0" stroke="#ccccccb7" strokeType="INSIDE" />
             <Line endX="100.0" layoutX="116.0" layoutY="200.0" startX="-100.0" stroke="#8f8f8f" />
@@ -36,48 +36,52 @@
       </AnchorPane>
    </left>
    <right>
-      <AnchorPane prefHeight="400.0" prefWidth="271.0" style="-fx-background-color: B4B4B5;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="400.0" prefWidth="287.0" style="-fx-background-color: B4B4B5;" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="#545454" layoutX="77.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrar Cliente">
+            <Text fill="#545454" layoutX="77.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Generar Pedido">
                <font>
-                  <Font name="Eras Mediumprivate Comercio comercio = Comercio.getInstancia(); ITC" size="16.0" />
+                  <Font name="Eras Medium ITC" size="16.0" />
                </font>
             </Text>
-            <TextField fx:id="tfNombre" layoutX="99.0" layoutY="111.0" prefHeight="25.0" prefWidth="136.0" />
-            <Text fill="#545454" layoutX="31.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:">
-               <font>
-                  <Font name="Eras Medium ITC" size="13.0" />
-               </font>
-            </Text>
-            <TextField fx:id="tfApellidos" layoutX="99.0" layoutY="150.0" prefHeight="25.0" prefWidth="136.0" />
-            <Text fill="#545454" layoutX="29.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellidos:">
+            <TextField fx:id="tfDNI" layoutX="99.0" layoutY="111.0" prefHeight="25.0" prefWidth="136.0" />
+            <Text fill="#545454" layoutX="31.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DNI:">
                <font>
                   <Font name="Eras Medium ITC" size="13.0" />
                </font>
             </Text>
-            <TextField fx:id="tfDNI" layoutX="99.0" layoutY="188.0" prefHeight="25.0" prefWidth="136.0" />
-            <Text fill="#545454" layoutX="26.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DNI:">
+            <TextField fx:id="tfNombreP" layoutX="99.0" layoutY="150.0" prefHeight="25.0" prefWidth="136.0" />
+            <Text fill="#545454" layoutX="29.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Producto:">
                <font>
                   <Font name="Eras Medium ITC" size="13.0" />
                </font>
             </Text>
-            <TextField fx:id="tfDescuento" layoutX="99.0" layoutY="228.0" prefHeight="25.0" prefWidth="136.0" />
-            <Text fill="#545454" layoutX="29.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descuento:">
+            <TextField fx:id="tfCantidadRP" layoutX="99.0" layoutY="188.0" prefHeight="25.0" prefWidth="136.0" />
+            <Text fill="#545454" layoutX="26.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cantidad:">
                <font>
                   <Font name="Eras Medium ITC" size="13.0" />
                </font>
             </Text>
-            <Button fx:id="botonVolver" layoutX="38.0" layoutY="320.0" mnemonicParsing="false" onAction="#volverPrincipal" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #545454;" text="Volver" textFill="#cdcdcd" />
-            <Text fill="#545454" layoutX="39.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Introduce los datos del cliente">
+            <Button fx:id="botonVolver" layoutX="40.0" layoutY="338.0" mnemonicParsing="false" onAction="#volverPrincipal" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #545454;" text="Volver" textFill="#cdcdcd" />
+            <Text fill="#545454" layoutX="34.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Introduce los datos del Pedido">
                <font>
                   <Font name="Eras Demi ITC" size="14.0" />
                </font>
             </Text>
-            <Button fx:id="botonEnviar" layoutX="38.0" layoutY="276.0" mnemonicParsing="false" onAction="#agregaCliente" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #7D7D7E;" text="Enviar" textFill="#cdcdcd" />
-            <Label fx:id="resultadoC" alignment="CENTER" layoutX="42.0" layoutY="359.0" prefHeight="17.0" prefWidth="186.0" textFill="#545454">
+            <Button fx:id="botonEnviar" layoutX="40.0" layoutY="301.0" mnemonicParsing="false" onAction="#generaPedido" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #7D7D7E;" text="Enviar" textFill="#cdcdcd" />
+            <Label fx:id="resultadoC" alignment="CENTER" layoutX="43.0" layoutY="369.0" prefHeight="17.0" prefWidth="186.0" textFill="#545454">
                <font>
                   <Font name="Eras Medium ITC" size="12.0" />
                </font></Label>
+            <Label fx:id="resultadoP" alignment="CENTER" layoutX="42.0" layoutY="369.0" prefHeight="17.0" prefWidth="189.0" textFill="#545454">
+               <font>
+                  <Font name="Eras Medium ITC" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="productosDisponibles" alignment="CENTER" layoutY="220.0" onMouseClicked="#mostrarProductos" prefHeight="75.0" prefWidth="254.0" textFill="#545454">
+               <font>
+                  <Font name="Eras Medium ITC" size="12.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </right>

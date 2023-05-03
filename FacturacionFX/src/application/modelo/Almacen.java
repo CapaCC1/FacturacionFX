@@ -1,4 +1,4 @@
-package modelo;
+package application.modelo;
 import java.util.LinkedHashMap;
 
 public class Almacen {
@@ -12,6 +12,11 @@ public class Almacen {
 	public Almacen() {
 		this.productos = new LinkedHashMap<String, Producto>();
 		this.stock = new LinkedHashMap<Integer, Producto>();
+		agregarProductos("Fanta", 1.20, 10);
+		agregarProductos("Coca", 1.30, 8);
+		agregarProductos("Pepsi", 1.10, 6);
+		agregarProductos("Smint", 1.40, 12);
+		
 	}
 	
 	public LinkedHashMap<Integer, Producto> getStock() {

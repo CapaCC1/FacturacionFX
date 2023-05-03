@@ -1,4 +1,4 @@
-package modelo;
+package application.modelo;
 import java.util.Objects;
 
 public class Producto {

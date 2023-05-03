@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.mostrarFacturaCliente">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controladores.mostrarFactura">
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="260.0" style="-fx-background-color: #440BFE;" BorderPane.alignment="CENTER">
          <children>
@@ -38,29 +38,31 @@
    <right>
       <AnchorPane prefHeight="400.0" prefWidth="287.0" style="-fx-background-color: B4B4B5;" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="#545454" layoutX="77.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mostrar Facturas">
+            <Text fill="#545454" layoutX="63.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visualizar Factura">
                <font>
                   <Font name="Eras Medium ITC" size="16.0" />
                </font>
             </Text>
-            <TextField fx:id="tfDNI" layoutX="99.0" layoutY="111.0" prefHeight="25.0" prefWidth="136.0" />
-            <Text fill="#545454" layoutX="31.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DNI:">
+            <TextField fx:id="numeroFac" layoutX="97.0" layoutY="109.0" prefHeight="26.0" prefWidth="116.0" />
+            <Text fill="#545454" layoutX="31.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nº Factura:">
                <font>
                   <Font name="Eras Medium ITC" size="13.0" />
                </font>
             </Text>
-            <Button fx:id="botonVolver" layoutX="38.0" layoutY="220.0" mnemonicParsing="false" onAction="#volverPrincipal" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #545454;" text="Volver" textFill="#cdcdcd" />
-            <Text fill="#545454" layoutX="34.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Introduce los datos del Cliente">
+            <Button fx:id="botonVolver" layoutX="24.0" layoutY="200.0" mnemonicParsing="false" onAction="#volverPrincipal" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #545454;" text="Volver" textFill="#cdcdcd" />
+            <Text fill="#545454" layoutX="21.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Introduce el numero de factura">
                <font>
                   <Font name="Eras Demi ITC" size="14.0" />
                </font>
             </Text>
-            <Button fx:id="botonEnviar" layoutX="38.0" layoutY="181.0" mnemonicParsing="false" onAction="#facturaCliente" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #7D7D7E;" text="Enviar" textFill="#cdcdcd" />
-            <Label fx:id="resultadoF" alignment="CENTER" layoutY="254.0" prefHeight="116.0" prefWidth="254.0" textFill="#545454">
+            <Button fx:id="botonEnviar" layoutX="24.0" layoutY="161.0" mnemonicParsing="false" onAction="#abrirFacturaGenerada" prefHeight="25.0" prefWidth="192.0" style="-fx-background-color: #7D7D7E;" text="Enviar" textFill="#cdcdcd" />
+            <Label fx:id="resultadoP" layoutX="77.0" layoutY="269.0" />
+            <Label fx:id="resultadoP" alignment="CENTER" layoutX="17.0" layoutY="250.0" prefHeight="18.0" prefWidth="208.0" textFill="#383838">
                <font>
-                  <Font name="Eras Medium ITC" size="12.0" />
-               </font>
-            </Label>
+                  <Font name="Eras Demi ITC" size="12.0" />
+               </font></Label>
+            <Label fx:id="resultadoNotificacion" layoutX="106.0" layoutY="369.0" />
+            <Label fx:id="resultadoNotificacion" alignment="CENTER" layoutX="25.0" layoutY="369.0" prefHeight="18.0" prefWidth="194.0" textFill="#383838" />
          </children>
       </AnchorPane>
    </right>

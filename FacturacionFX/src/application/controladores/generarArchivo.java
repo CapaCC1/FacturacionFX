@@ -1,4 +1,4 @@
-package application;
+package application.controladores;
 
 import java.io.IOException;
 import java.net.URL;
@@ -14,10 +14,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import modelo.Comercio;
+import application.modelo.Comercio;
 
-public class mostrarFacturaCliente implements Initializable {
-	
+public class generarArchivo implements Initializable {
 	@FXML
 	private Button botonVolver;
 	
@@ -28,7 +27,7 @@ public class mostrarFacturaCliente implements Initializable {
 	private Label resultadoF;
 	
 	@FXML 
-	private TextField tfDNI;
+	private TextField numeroFactura;
 	
 	private Comercio comercio = Comercio.getInstancia();
 	
@@ -38,7 +37,7 @@ public class mostrarFacturaCliente implements Initializable {
 	
 	public void volverPrincipal(ActionEvent Event) throws IOException {
 	 	
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("PrimeraPantalla.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/vistas/PrimeraPantalla.fxml"));
 	    Parent root = loader.load();
 	    Scene scene = new Scene(root);
 	    Stage stageActual = (Stage) botonVolver.getScene().getWindow(); // obtener la instancia actual de Stage
@@ -48,10 +47,9 @@ public class mostrarFacturaCliente implements Initializable {
 	    stageActual.show();
 	}
 	
-	public void facturaCliente() {
-		String dni = tfDNI.getText();
-		String resultado = comercio.buscaFacturaDniCliente(dni);
+	public void generaArchivo() throws IOException {
+		String numFactura = numeroFactura.getText();
+		String resultado = comercio.generarFacturaArchivo(numFactura);
 		resultadoF.setText(resultado);
 	}
-	
 }

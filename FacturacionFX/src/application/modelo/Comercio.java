@@ -1,4 +1,4 @@
-package modelo;
+package application.modelo;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -15,6 +15,14 @@ public class Comercio {
 	public Comercio() {
 		this.almacen = new Almacen();
 		this.clientes = new HashMap<String, Cliente>();
+		Cliente cliente1 = new Cliente("1","Paco","Gomez",5);
+		Cliente cliente2 = new Cliente("2","Jesus","Lopez",5);
+		Cliente cliente3 = new Cliente("3","Fran","Guti",5);
+		Cliente cliente4 = new Cliente("4","Lucas","Marco",5);
+		clientes.put("1", cliente1);
+		clientes.put("2", cliente2);
+		clientes.put("3", cliente3);
+		clientes.put("4", cliente4);
 	}
 
 	public HashMap<String, Cliente> getClientes() {

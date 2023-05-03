@@ -1,4 +1,4 @@
-package application;
+package application.controladores;
 
 import javafx.event.ActionEvent;
 
@@ -13,7 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import modelo.Comercio;
+import application.modelo.Comercio;
 
 public class PantallaPrincipal implements Initializable {
 
@@ -49,11 +49,11 @@ public class PantallaPrincipal implements Initializable {
 	   
 	   @Override
 	   public void initialize(URL location, ResourceBundle resources) {
-		  
+		 
 	   }
-
+	   
 	   public void registrarCliente(ActionEvent Event) throws IOException {
-		   FXMLLoader loader = new FXMLLoader(getClass().getResource("PantallaCliente.fxml"));
+		   FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/vistas/PantallaCliente.fxml"));
 		   Parent root = loader.load();
 		   Scene scene = new Scene(root);
 		   Stage stage = new Stage();
@@ -65,7 +65,7 @@ public class PantallaPrincipal implements Initializable {
 	   }
 	   
 	   public void incorporarProducto(ActionEvent Event) throws IOException {
-		   FXMLLoader loader = new FXMLLoader(getClass().getResource("PantallaProducto.fxml"));
+		   FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/vistas/PantallaProducto.fxml"));
 		   Parent root = loader.load();
 		   Scene scene = new Scene(root);
 		   Stage stage = new Stage();
@@ -77,7 +77,7 @@ public class PantallaPrincipal implements Initializable {
 	   }
 	   
 	   public void reponerProducto(ActionEvent Event) throws IOException {
-		   FXMLLoader loader = new FXMLLoader(getClass().getResource("PantallaReponerProducto.fxml"));
+		   FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/vistas/PantallaReponerProducto.fxml"));
 		   Parent root = loader.load();
 		   Scene scene = new Scene(root);
 		   Stage stage = new Stage();
@@ -89,7 +89,7 @@ public class PantallaPrincipal implements Initializable {
 	   }
 	   
 	   public void generarPedido(ActionEvent Event) throws IOException {
-		   FXMLLoader loader = new FXMLLoader(getClass().getResource("PantallaGPedido.fxml"));
+		   FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/vistas/PantallaGPedido.fxml"));
 		   Parent root = loader.load();
 		   Scene scene = new Scene(root);
 		   Stage stage = new Stage();
@@ -101,7 +101,7 @@ public class PantallaPrincipal implements Initializable {
 	   }
 	   
 	   public void generarFactura(ActionEvent Event) throws IOException {
-		   FXMLLoader loader = new FXMLLoader(getClass().getResource("PantallaGFactura.fxml"));
+		   FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/vistas/PantallaGFactura.fxml"));
 		   Parent root = loader.load();
 		   Scene scene = new Scene(root);
 		   Stage stage = new Stage();
@@ -113,7 +113,7 @@ public class PantallaPrincipal implements Initializable {
 	   }
 	   
 	   public void visualizarFactura(ActionEvent Event) throws IOException {
-		   FXMLLoader loader = new FXMLLoader(getClass().getResource("PantallaVFactura.fxml"));
+		   FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/vistas/PantallaVFactura.fxml"));
 		   Parent root = loader.load();
 		   Scene scene = new Scene(root);
 		   Stage stage = new Stage();
@@ -125,7 +125,7 @@ public class PantallaPrincipal implements Initializable {
 	   }
 	   
 	   public void visualizarFacturaCliente(ActionEvent Event) throws IOException {
-		   FXMLLoader loader = new FXMLLoader(getClass().getResource("PantallaFCliente.fxml"));
+		   FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/vistas/PantallaFCliente.fxml"));
 		   Parent root = loader.load();
 		   Scene scene = new Scene(root);
 		   Stage stage = new Stage();
@@ -137,7 +137,7 @@ public class PantallaPrincipal implements Initializable {
 	   }
 	   
 	   public void generarArchivo(ActionEvent Event) throws IOException {
-		   FXMLLoader loader = new FXMLLoader(getClass().getResource("PantallaGArchivo.fxml"));
+		   FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/vistas/PantallaGArchivo.fxml"));
 		   Parent root = loader.load();
 		   Scene scene = new Scene(root);
 		   Stage stage = new Stage();
