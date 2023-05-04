@@ -1,6 +1,8 @@
 package application.modelo;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class Comercio {
 	private Almacen almacen;
@@ -169,6 +171,21 @@ public class Comercio {
 		}
 		return resultado;
 	}
+	
+	public ArrayList<String>getProductos(){
+		ArrayList<String>productos = new ArrayList<String>();
+		LinkedHashMap<String, Producto> productosAlmacen = almacen.getProductos();
+		
+		for (String producto : productosAlmacen.keySet()) {
+	        productos.add(producto);
+	    }
+	    return productos;
+	}
+	
+	public String getCantidadPrecio(String nombre) {
+		return almacen.getCantidadYPrecio(nombre);
+	}
+	
 	
 	@Override
 	public String toString() {

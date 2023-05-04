@@ -8,11 +8,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import application.modelo.Comercio;
 
@@ -53,5 +55,22 @@ public class mostrarFacturaCliente implements Initializable {
 		String resultado = comercio.buscaFacturaDniCliente(dni);
 		resultadoF.setText(resultado);
 	}
+	
+	public void abrirFacturas(ActionEvent event) throws IOException {
+		String dni = tfDNI.getText();
+		String resultado = comercio.buscaFacturaDniCliente(dni);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/vistas/facturasCliente.fxml"));
+        Parent root = loader.load();
+        facturasCliente controller = loader.getController();
+        controller.muestraFacturaCliente(resultado);
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        Image icono = new Image("/application/media/factura.png");
+		stage.getIcons().add(icono);
+        stage.show();
+        tfDNI.setText("");
+    }
+	
 	
 }

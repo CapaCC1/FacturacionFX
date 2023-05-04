@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import application.modelo.Comercio;
 
@@ -23,11 +24,12 @@ public class Main extends Application {
         // Obtener el controlador de la pantalla principal y establecer la instancia de Comercio
         PantallaPrincipal controller = loader.getController();
         controller.setComercio(comercio);
-
+        Image icono = new Image("/application/media/factura.png");
         // Configurar la escena y mostrarla
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Programa Comercio");
+        primaryStage.getIcons().add(icono);
         primaryStage.show();
     }
    

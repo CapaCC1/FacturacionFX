@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -25,10 +26,10 @@ public class generarPedido implements Initializable {
 	private Button botonEnviar;
 	
 	@FXML
-	private TextField tfDNI;
+	private Button botonMostrarProductos;
 	
 	@FXML
-	private TextField tfNombreP;
+	private TextField tfDNI;
 	
 	@FXML
 	private TextField tfCantidadRP;
@@ -37,13 +38,38 @@ public class generarPedido implements Initializable {
 	private Label resultadoP;
 	
 	@FXML 
+	private Label cantidadesProductos;
+	
+	@FXML 
 	private Label productosDisponibles;
+	
+	
+	@FXML
+	private ChoiceBox<String> deslizableProductos;
 	
 	private Comercio comercio = Comercio.getInstancia();
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {	
-		mostrarProductos();
+		for (String productos : comercio.getProductos()) {
+			deslizableProductos.getItems().add(productos);
+		}
+		deslizableProductos.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+		    mostrarDatosProducto();
+		});
+	}
+	
+	public void mostrarDatosProducto() {
+		String producto = deslizableProductos.getValue();
+		String datosProducto = getCantidades(producto);
+		resultadoP.setText(datosProducto);
+	}
+	
+	
+	public String getCantidades(String nombre) {
+		String resultado = "";
+		resultado = comercio.getCantidadPrecio(nombre);
+		return resultado;
 	}
 	
 	public void volverPrincipal(ActionEvent Event) throws IOException {
@@ -64,8 +90,8 @@ public class generarPedido implements Initializable {
 
 	public void generaPedido(ActionEvent Event) {
 		String dni = tfDNI.getText();
-		System.out.println(comercio.mostrarProductos());
-		String nombreProducto = tfNombreP.getText();
+		String nombreProducto = deslizableProductos.getValue();
+		
 		int cantidad = Integer.parseInt(tfCantidadRP.getText());
 		
 		int codigo = comercio.generarPedido(dni, nombreProducto, cantidad);
@@ -81,7 +107,6 @@ public class generarPedido implements Initializable {
 			System.out.println("\nNo existe un cliente con ese DNI.");
 		}
 		tfDNI.setText("");
-		tfNombreP.setText("");
 		tfCantidadRP.setText("");
 		
 	}

@@ -175,14 +175,14 @@ public class Cliente {
 	}
 	
 	public String imprimirFactura(String numeroFactura) {
-	    StringBuilder tabla = new StringBuilder();    
+	    StringBuilder tabla = new StringBuilder(); 
 	    Factura factura = buscarFactura(numeroFactura);
 	    if (factura != null) {  
 	        DecimalFormat df = new DecimalFormat("#.##");
 	        Pedido pedido = factura.getPedido();
 	        if (pedido != null && pedido.getProductos() != null && !pedido.getProductos().isEmpty()) {
 	            tabla.append("Cliente: " + factura.getCliente().getNombre() + " " + factura.getCliente().getApellidos() + "\n");
-	            tabla.append("Factura NÂº " + factura.getFechaCreacion() + "\n");
+	            tabla.append("Factura Nº " + factura.getFechaCreacion() + "\n");
 	            tabla.append("Producto\tUnidades\tPrecio\t\tDescuento\tSubtotal\n");
 	            tabla.append("----------------------------------------------------------------------------------------------------------------\n");
 	            double subtotal = 0.0;
@@ -191,18 +191,20 @@ public class Cliente {
 	                int unidades = pedido.getCantidadPedida(producto);
 	                double precio = producto.getPrecio();
 	                double descuento = factura.getCliente().getDescuento();
-	                double subtotalProducto = unidades * precio * (1 - descuento / 100);
-	                tabla.append(String.format("%-19s%-19s%-20s%-20s%-19s\n", producto.getNombre(), unidades + "Uds", df.format(precio) + "â‚¬", df.format(descuento) + "%", df.format(subtotalProducto) + "â‚¬"));
+	                double subtotalProducto = unidades * precio;
+	                tabla.append(String.format("%-19s%-19s%-20s%-20s%-19s\n", producto.getNombre(), unidades + "Uds", df.format(precio) + "€", df.format(descuento) + "%", df.format(subtotalProducto) + "€"));
 	                subtotal += subtotalProducto;
 	            }
 	            double iva = subtotal * 0.21;
-	            double total = subtotal + iva;
+	            double descuentoTotal = subtotal * descuento / 100;
+	            double total = subtotal + iva - descuentoTotal;
 	            tabla.append("----------------------------------------------------------------------------------------------------------------\n");
-	            tabla.append(String.format("%-89s%-20s\n", "Subtotal", df.format(subtotal) + "â‚¬"));
-	            tabla.append(String.format("%-88s%-20s\n", "IVA 21%", df.format(iva) + "â‚¬"));
-	            tabla.append(String.format("%-89s%-20s\n", "TOTAL", df.format(total) + "â‚¬"));
+	            tabla.append(String.format("%-89s%-20s\n", "Subtotal", df.format(subtotal) + "€"));
+	            tabla.append(String.format("%-86s%-20s\n", "Descuento", df.format(descuentoTotal) + "€"));
+	            tabla.append(String.format("%-88s%-20s\n", "IVA 21%", df.format(iva) + "€"));
+	            tabla.append(String.format("%-89s%-20s\n", "TOTAL", df.format(total) + "€"));
 	        } else {
-	            tabla.append("El pedido No Existe o no contiene productos!"); 
+	            tabla.append("El pedido No Existe o No contiene productos!"); 
 	        }
 	    }
 	    return tabla.toString();

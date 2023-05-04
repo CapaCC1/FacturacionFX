@@ -105,17 +105,23 @@ public class Almacen {
 	    }
 	}
 	
+	public String getCantidadYPrecio(String nombre) {
+			String resultado = "";
+			Producto producto = buscaProducto(nombre);
+				for (Integer cantidad : stock.keySet()) {
+					if(stock.get(cantidad).equals(producto)) {
+						resultado = producto.getNombre()+ ":  " + " Precio: " + producto.getPrecio() + "€  " + " Stock: " + cantidad.toString() + " Uds";
+					}
+				}
+			return resultado;
+		}
+	
+	
 	@Override
 	public String toString() {
 	    StringBuilder sb = new StringBuilder();
-	    for (Integer cantidad : stock.keySet()) {
-	        Producto producto = stock.get(cantidad);
-	        sb.append("\nProducto: ");
+	    for (Producto producto : productos.values()) {
 	        sb.append(producto.getNombre());
-	        sb.append(" Precio: ");
-	        sb.append(producto.getPrecio());
-	        sb.append(" Cantidad: ");
-	        sb.append(cantidad);
 	    }
 	    return sb.toString();
 	}

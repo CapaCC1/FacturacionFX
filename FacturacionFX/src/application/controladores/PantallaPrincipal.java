@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import application.modelo.Comercio;
 
@@ -59,6 +60,8 @@ public class PantallaPrincipal implements Initializable {
 		   Stage stage = new Stage();
 		   stage.setScene(scene);
 		   stage.setTitle("Agregar Cliente");
+		   Image icono = new Image("/application/media/factura.png");
+		   stage.getIcons().add(icono);
 		   stage.show();
 		   Stage stageActual = (Stage)botonRCliente.getScene().getWindow();
 		   stageActual.hide();
@@ -71,9 +74,13 @@ public class PantallaPrincipal implements Initializable {
 		   Stage stage = new Stage();
 		   stage.setScene(scene);
 		   stage.setTitle("Agregar Producto");
+		   Image icono = new Image("/application/media/factura.png");
+		   stage.getIcons().add(icono);
 		   stage.show();
 		   Stage stageActual = (Stage)botonIProducto.getScene().getWindow();
 		   stageActual.hide();
+		   
+		   
 	   }
 	   
 	   public void reponerProducto(ActionEvent Event) throws IOException {
@@ -83,6 +90,8 @@ public class PantallaPrincipal implements Initializable {
 		   Stage stage = new Stage();
 		   stage.setScene(scene);
 		   stage.setTitle("Reponer Producto");
+		   Image icono = new Image("/application/media/factura.png");
+		   stage.getIcons().add(icono);
 		   stage.show();
 		   Stage stageActual = (Stage)botonRProducto.getScene().getWindow();
 		   stageActual.hide();
@@ -95,6 +104,8 @@ public class PantallaPrincipal implements Initializable {
 		   Stage stage = new Stage();
 		   stage.setScene(scene);
 		   stage.setTitle("Generar Pedido");
+		   Image icono = new Image("/application/media/factura.png");
+		   stage.getIcons().add(icono);
 		   stage.show();
 		   Stage stageActual = (Stage)botonRCliente.getScene().getWindow();
 		   stageActual.hide();
@@ -107,6 +118,8 @@ public class PantallaPrincipal implements Initializable {
 		   Stage stage = new Stage();
 		   stage.setScene(scene);
 		   stage.setTitle("Generar Factura");
+		   Image icono = new Image("/application/media/factura.png");
+		   stage.getIcons().add(icono);
 		   stage.show();
 		   Stage stageActual = (Stage)botonRCliente.getScene().getWindow();
 		   stageActual.hide();
@@ -119,6 +132,8 @@ public class PantallaPrincipal implements Initializable {
 		   Stage stage = new Stage();
 		   stage.setScene(scene);
 		   stage.setTitle("Visualizar Factura");
+		   Image icono = new Image("/application/media/factura.png");
+		   stage.getIcons().add(icono);
 		   stage.show();
 		   Stage stageActual = (Stage)botonRCliente.getScene().getWindow();
 		   stageActual.hide();
@@ -131,6 +146,8 @@ public class PantallaPrincipal implements Initializable {
 		   Stage stage = new Stage();
 		   stage.setScene(scene);
 		   stage.setTitle("Visualizar Facturas Cliente");
+		   Image icono = new Image("/application/media/factura.png");
+		   stage.getIcons().add(icono);
 		   stage.show();
 		   Stage stageActual = (Stage)botonRCliente.getScene().getWindow();
 		   stageActual.hide();
@@ -143,6 +160,8 @@ public class PantallaPrincipal implements Initializable {
 		   Stage stage = new Stage();
 		   stage.setScene(scene);
 		   stage.setTitle("Generar Archivo de Factura");
+		   Image icono = new Image("/application/media/factura.png");
+		   stage.getIcons().add(icono);
 		   stage.show();
 		   Stage stageActual = (Stage)botonRCliente.getScene().getWindow();
 		   stageActual.hide();

@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import application.modelo.Comercio;
 
@@ -59,6 +60,8 @@ public class mostrarFactura implements Initializable {
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+        Image icono = new Image("/application/media/factura.png");
+		stage.getIcons().add(icono);
         stage.show();
         numeroFac.setText("");
     }
